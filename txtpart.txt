@@ -1,0 +1,170 @@
+ private void txtpart()
+        {           
+            #region txt Anterior
+            if (RadioAnterior.IsChecked == true)
+            {
+                if (DataList[1].Average() < 1000) label31.Content = DataList[1].Average().ToString("f0");   //A1
+                if (DataList[2].Average() < 1000) label32.Content = DataList[2].Average().ToString("f0");   //A2
+                if (DataList[3].Average() < 1000) label33.Content = DataList[3].Average().ToString("f0");   //A3
+                if (DataList[4].Average() < 1000) label34.Content = DataList[4].Average().ToString("f0");   //A4
+                if (DataList[5].Average() < 1000) label35.Content = DataList[5].Average().ToString("f0");   //A5       
+                if (DataList[6].Average() < 1000) label36.Content = DataList[6].Average().ToString("f0");   //A6
+                if (DataList[7].Average() < 1000) label37.Content = DataList[7].Average().ToString("f0");   //A7
+                if (DataList[8].Average() < 1000) label38.Content = DataList[8].Average().ToString("f0");   //A8
+                if (DataList[9].Average() < 1000) label39.Content = DataList[9].Average().ToString("f0");   //A9
+                if (DataList[10].Average() < 1000) label40.Content = DataList[10].Average().ToString("f0");  //A10
+
+                string[] txtant = new string[30];  // 30row
+                string gender;
+                if (RadioMale.IsChecked == true) gender = "male"; else if (RadioFemale.IsChecked == true) gender = "female"; else gender = "?";
+               
+                
+                txtant[0] = "Name：" + textBox1.Text + "\tPatientID：" + textBox2.Text + "\tAge：" + textBox3.Text + "\tHeight/Weight：" + textBox4.Text + "\\" + textBox5.Text + "\tGender：" + gender;
+                //
+                txtant[2] = "Anterior Test";
+                // 
+                txtant[4] = "A1\tA2\tA3\tA4\tA5\tA6\tA7\tA8\tA9\t10\t";
+                for (int i = 0; i < DataList[1].Count ; i++)//arrrylist.count = 本次偵測區間抓了幾筆  => 就要有i列
+                {
+                    txtant[i + 5] = DataList[1][i].ToString("f0")
+                           + "\t" + DataList[2][i].ToString("f0")
+                           + "\t" + DataList[3][i].ToString("f0")
+                           + "\t" + DataList[4][i].ToString("f0")
+                           + "\t" + DataList[5][i].ToString("f0")
+                           + "\t" + DataList[6][i].ToString("f0")
+                           + "\t" + DataList[7][i].ToString("f0")
+                           + "\t" + DataList[8][i].ToString("f0")
+                           + "\t" + DataList[9][i].ToString("f0")
+                           + "\t" + DataList[10][i].ToString("f0");
+                }                  
+                    txtant[DataList[1].Count + 6] = "Average：";
+                    txtant[DataList[1].Count + 8] = DataList[1].Average().ToString("f0")
+                                            + "\t" + DataList[2].Average().ToString("f0")
+                                            + "\t" + DataList[3].Average().ToString("f0")
+                                            + "\t" + DataList[4].Average().ToString("f0")
+                                            + "\t" + DataList[5].Average().ToString("f0")
+                                            + "\t" + DataList[6].Average().ToString("f0")
+                                            + "\t" + DataList[7].Average().ToString("f0")
+                                            + "\t" + DataList[8].Average().ToString("f0")
+                                            + "\t" + DataList[9].Average().ToString("f0")
+                                            + "\t" + DataList[10].Average().ToString("f0");      
+                
+                //System.IO.File.WriteAllLines(@"C:\Anterior Test.txt", txtant);
+            }
+            #endregion
+
+            #region txt LeftLateral
+            if (RadioLeftLateral.IsChecked == true)
+            {
+                if (DataList[11].Average() < 1000) label41.Content = DataList[11].Average().ToString("f0");   //A11
+                if (DataList[12].Average() < 1000) label42.Content = DataList[12].Average().ToString("f0");   //A12
+                if (DataList[13].Average() < 1000) label43.Content = DataList[13].Average().ToString("f0");   //A13
+                if (DataList[14].Average() < 1000) label44.Content = DataList[14].Average().ToString("f0");   //A14
+                if (DataList[15].Average() < 1000) label45.Content = DataList[15].Average().ToString("f0");   //A15            
+                if (DataList[16].Average() < 1000) label46.Content = DataList[16].Average().ToString("f0");   //A16
+                if (DataList[17].Average() < 1000) label47.Content = DataList[17].Average().ToString("f0");   //A17
+                if (DataList[18].Average() < 1000) label48.Content = DataList[18].Average().ToString("f0");   //A18
+
+
+
+                string[] txtleft = new string[30];
+                string gender;
+                if (RadioMale.IsChecked == true) gender = "male"; else if (RadioFemale.IsChecked == true) gender = "female"; else gender = "?";
+
+                txtleft[0] = "Name：" + textBox1.Text + "\tPatientID：" + textBox2.Text + "\tAge：" + textBox3.Text + "\tHeight/Weight：" + textBox4.Text + "\\" + textBox5.Text + "\tGender：" + gender;     
+                txtleft[2] = "Left Lateral Test";                
+                txtleft[4] = "A11\tA12\tA13\tA14\tA15\tA16\tA17\tA18";
+
+                for (int i = 0; i < DataList[1].Count; i++)
+                {
+                    txtleft[i + 5] = DataList[11][i].ToString("f2")
+                            + "\t" + DataList[12][i].ToString("f2")
+                            + "\t" + DataList[13][i].ToString("f2")
+                            + "\t" + DataList[14][i].ToString("f2")
+                            + "\t" + DataList[15][i].ToString("f2")
+                            + "\t" + DataList[16][i].ToString("f2")
+                            + "\t" + DataList[17][i].ToString("f2")
+                            + "\t" + DataList[18][i].ToString("f2");
+                }
+                        txtleft[DataList[1].Count + 6] = "Average：";
+                        txtleft[DataList[1].Count + 8] = DataList[11].Average().ToString("f2")
+                                                 + "\t" + DataList[12].Average().ToString("f2")
+                                                 + "\t" + DataList[13].Average().ToString("f2")
+                                                 + "\t" + DataList[14].Average().ToString("f2")
+                                                 + "\t" + DataList[15].Average().ToString("f2")
+                                                 + "\t" + DataList[16].Average().ToString("f2")
+                                                 + "\t" + DataList[17].Average().ToString("f2")
+                                                 + "\t" + DataList[18].Average().ToString("f2");
+                    
+                
+               // System.IO.File.WriteAllLines(@"C:\Left Lateral Test.txt", txtleft);
+            }
+            #endregion
+
+            #region txt Posterior
+            if (RadioPosterior.IsChecked == true)
+            {
+                if (DataList[26].Average() < 1000) label51.Content = DataList[26].Average().ToString("f0");   //DataList[26]
+                if (DataList[27].Average() < 1000) label52.Content = DataList[27].Average().ToString("f0");   //DataList[27]
+                if (DataList[28].Average() < 1000) label53.Content = DataList[28].Average().ToString("f0");   //DataList[28]
+                if (DataList[19].Average() < 1000) label49.Content = DataList[19].Average().ToString("f0");         //DataList[19]
+                if (DataList[20].Average() < 1000) label50.Content = DataList[20].Average().ToString("f0");         //DataList[20]
+
+
+                string[] txtpos = new string[30];
+                string gender;
+                if (RadioMale.IsChecked == true) gender = "male"; else if (RadioFemale.IsChecked == true) gender = "female"; else gender = "?";
+                txtpos[0] = "Name：" + textBox1.Text + "\tPatientID：" + textBox2.Text + "\tAge：" + textBox3.Text + "\tHeight/Weight：" + textBox4.Text + "\\" + textBox5.Text + "\tGender：" + gender;
+                //
+                txtpos[2] = "Posterior Test";
+                //
+                txtpos[4] = "Trunk1\tTrunk2\tTrunk3\tA19\tA20\t";
+                for (int i = 0; i < DataList[1].Count; i++)
+                {
+                    txtpos[i + 5] = DataList[26][i].ToString("f0")
+                           + "\t" + DataList[27][i].ToString("f0")
+                           + "\t" + DataList[28][i].ToString("f0")
+                           + "\t" + DataList[19][i].ToString("f0")
+                           + "\t" + DataList[20][i].ToString("f0");
+
+                }
+                txtpos[DataList[1].Count + 6] = "Average：";
+                txtpos[DataList[1].Count + 8] = DataList[26].Average().ToString("f2")
+                                        + "\t" + DataList[27].Average().ToString("f2")
+                                        + "\t" + DataList[28].Average().ToString("f2")
+                                        + "\t" + DataList[19].Average().ToString("f2")
+                                        + "\t" + DataList[20].Average().ToString("f2");
+               
+               // System.IO.File.WriteAllLines(@"C:\Posterior Test.txt", txtpos);
+            }
+            #endregion
+
+            #region txt Button
+            if (RadioFreeMode.IsChecked == true)
+            {                
+                string[] txtbtn = new string[30];                
+                string gender; if (RadioMale.IsChecked == true) gender = "male"; else if (RadioFemale.IsChecked == true) gender = "female"; else gender = "?";
+
+                txtbtn[0] = "Name：" + textBox1.Text + "\tPatientID：" + textBox2.Text + "\tAge：" + textBox3.Text + "\tHeight/Weight：" + textBox4.Text + "\\" + textBox5.Text + "\tGender：" + gender;               
+                txtbtn[2] = "FreeMode Test";                
+                txtbtn[4] = "Horizontal\t" + "3pointsAngle\t" + "Vertical\t" + "BetweenLines\t" + "Distance\t";
+                for (int i = 0; i < DataList[1].Count; i++)
+                {
+                    txtbtn[i + 5] = DataList[21][i].ToString("f2")
+                         + "\t\t" + DataList[22][i].ToString("f2")
+                         + "\t\t" + DataList[23][i].ToString("f2")
+                         + "\t\t" + DataList[24][i].ToString("f2")
+                         + "\t\t" + DataList[25][i].ToString("f2");
+                }                  
+                    txtbtn[DataList[1].Count + 6] = "Average：";
+                    txtbtn[DataList[1].Count + 8] = DataList[21].Average().ToString("f2")
+                                          + "\t\t" + DataList[22].Average().ToString("f2")
+                                          + "\t\t" + DataList[23].Average().ToString("f2")
+                                          + "\t\t" + DataList[24].Average().ToString("f2")
+                                          + "\t\t" + DataList[25].Average().ToString("f2");
+              
+               // System.IO.File.WriteAllLines(@"C:\FreeMode Test.txt", txtbtn);
+            }
+            #endregion
+
+        }
